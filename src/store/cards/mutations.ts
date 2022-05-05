@@ -19,6 +19,9 @@ const mutation: MutationTree<Cards> = {
   FREEZE_CARD(state: Cards, { cardIndex }) {
     state.allCards[cardIndex] = { ...state.allCards[cardIndex], frozen: true };
   },
+  UN_FREEZE_CARD(state: Cards, { cardIndex }) {
+    state.allCards[cardIndex] = { ...state.allCards[cardIndex], frozen: false };
+  },
   CANCEL_CARD(state: Cards, { cardNumber }) {
     state.allCards = state.allCards.filter(
       (card) => card.cardNumber !== cardNumber

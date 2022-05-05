@@ -99,8 +99,12 @@ export default defineComponent({
     const showModal = ref(false);
 
     const handleAction = (action: string) => {
-      if (action === 'freezeCard') {
+      if (action === 'freezeCard' && !currentCard.value?.frozen) {
         store.dispatch('cards/freezeCard');
+      }
+
+      if (action === 'freezeCard' && currentCard.value?.frozen) {
+        store.dispatch('cards/unFreezeCard');
       }
 
       if (action === 'cancelCard') {

@@ -12,6 +12,9 @@ const actions: ActionTree<Cards, StateInterface> = {
   freezeCard({ commit, getters }) {
     commit('FREEZE_CARD', { cardIndex: getters.currentCardIndex });
   },
+  unFreezeCard({ commit, getters }) {
+    commit('UN_FREEZE_CARD', { cardIndex: getters.currentCardIndex });
+  },
   cancelCard({ commit, state }) {
     console.log({ cardNumber: state.currentCardNumber });
     commit('CANCEL_CARD', { cardNumber: state.currentCardNumber });
